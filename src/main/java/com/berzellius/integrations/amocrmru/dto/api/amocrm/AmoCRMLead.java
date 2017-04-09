@@ -13,13 +13,14 @@ import java.math.BigDecimal;
 public class AmoCRMLead extends AmoCRMEntityWCustomFieldsAndTags {
     public AmoCRMLead(){}
 
-    private Long id;
-    private String name;
-    private Long created_user_id;
-    private Long status_id;
-    private BigDecimal price;
-    private Long responsible_user_id;
-    private Long account_id;
+    protected Long id;
+    protected String name;
+    protected Long created_user_id;
+    protected Long pipeline_id;
+    protected Long status_id;
+    protected BigDecimal price;
+    protected Long responsible_user_id;
+    protected Long account_id;
 
 
     public Long getId() {
@@ -76,5 +77,13 @@ public class AmoCRMLead extends AmoCRMEntityWCustomFieldsAndTags {
 
     public void setAccount_id(Long account_id) {
         this.account_id = account_id;
+    }
+
+    public Long getPipeline_id() {
+        return pipeline_id;
+    }
+
+    public void setPipeline_id(Long pipeline_id) {
+        this.pipeline_id = pipeline_id;
     }
 }
