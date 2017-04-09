@@ -1,12 +1,15 @@
 import com.berzellius.integrations.amocrmru.dto.ErrorHandlers.AmoCRMAPIRequestErrorHandler;
 import com.berzellius.integrations.amocrmru.dto.api.amocrm.AmoCRMContact;
 import com.berzellius.integrations.amocrmru.dto.api.amocrm.AmoCRMLead;
+import com.berzellius.integrations.amocrmru.dto.api.amocrm.response.AmoCRMCreatedEntityResponse;
 import com.berzellius.integrations.amocrmru.service.AmoCRMService;
 import com.berzellius.integrations.amocrmru.service.AmoCRMServiceImpl;
 import com.berzellius.integrations.basic.exception.APIAuthException;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.util.Assert;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,15 +47,23 @@ public class MainTest {
     /**
      * Тест создания сделки
      * ВНИМАНИЕ! Тест создает сделку, поэтому аннотацию @Test стоит держать закомментированной
-     * todo дописать удаление сделки, тогда результат можно будеть видеть в корзине, никому не мешая. Выводить id созданной сделки в лог
+     * удаление сделок через API не предусмотрено
      * @throws APIAuthException
      */
     //@Test
-    public void testPostMethod() throws APIAuthException {
+    public void testPostMethod() throws Exception {
         AmoCRMLead amoCRMLead = new AmoCRMLead();
-        amoCRMLead.setName("Тестовая сделка");
 
-        this.getAmoCRMService().addLead(amoCRMLead);
+        Date dt = new Date();
+        String leadName = "Тестовая сделка " + dt.getTime();
+        amoCRMLead.setName(leadName);
+
+        AmoCRMCreatedEntityResponse amoCRMCreatedEntityResponse = this.getAmoCRMService().addLead(amoCRMLead);
+        Long idCreatedLead = amoCRMCreatedEntityResponse.getId();
+
+        Assert.notNull(idCreatedLead);
+
+        System.out.println("created lead#" + idCreatedLead);
     }
 
     public void setAmoCRMService(AmoCRMService amoCRMService) {

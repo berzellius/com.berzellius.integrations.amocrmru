@@ -15,9 +15,12 @@ public class AmoCRMNoteTextSerializer extends JsonSerializer<AmoCRMNoteText> {
     @Override
     public void serialize(AmoCRMNoteText amoCRMNoteText, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
 
-        String str = "{\"PHONE\":\"" + amoCRMNoteText.getPhone() + "\"," +
+        String str = "{" +
+                (amoCRMNoteText.getUniq() != null ? "\"UNIQ\":\"" + amoCRMNoteText.getUniq() + "\"," : "") +
+                (amoCRMNoteText.getSrc() != null ? "\"SRC\":\"" + amoCRMNoteText.getSrc() + "\"," : "") +
+                "\"PHONE\":\"" + amoCRMNoteText.getPhone() + "\"," +
                 "\"DURATION\":" + amoCRMNoteText.getDuration() + "," +
-                "\"SRC\":\"" + amoCRMNoteText.getSrc() + "\"," +
+                "\"LINK\":\"" + amoCRMNoteText.getLink() + "\"," +
                 "\"call_status\":\"" + amoCRMNoteText.getCall_status() + "\"," +
                 "\"call_result\":\"" + amoCRMNoteText.getCall_result() + "\"}";
         jsonGenerator.writeString(str);

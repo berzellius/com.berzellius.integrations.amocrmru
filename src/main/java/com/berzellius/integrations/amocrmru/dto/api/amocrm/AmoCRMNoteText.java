@@ -21,9 +21,10 @@ public class AmoCRMNoteText {
     public AmoCRMNoteText(){}
 
     private String uniq;
+    private String src;
     private String phone;
     private String duration;
-    private String src;
+    private String link;
     private String call_status;
     private String call_result;
 
@@ -44,12 +45,12 @@ public class AmoCRMNoteText {
     }
 
 
-    public String getSrc() {
-        return src;
+    public String getLink() {
+        return link;
     }
 
-    public void setSrc(String src) {
-        this.src = src;
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public String getCall_status() {
@@ -74,5 +75,13 @@ public class AmoCRMNoteText {
 
     public void setDuration(String duration) {
         this.duration = duration;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
     }
 }

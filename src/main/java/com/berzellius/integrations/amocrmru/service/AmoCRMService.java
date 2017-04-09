@@ -28,6 +28,8 @@ public interface AmoCRMService {
 
     void addContactToLead(AmoCRMContact amoCRMContact, AmoCRMLead amoCRMLead) throws APIAuthException;
 
+    public abstract AmoCRMCreatedNotesResponse addNoteToContact(AmoCRMNote amoCRMNote, AmoCRMContact amoCRMContact) throws APIAuthException;
+
     AmoCRMCreatedNotesResponse addNoteToLead(AmoCRMNote amoCRMNote, AmoCRMLead amoCRMLead) throws APIAuthException;
 
     void addContactsToLead(ArrayList<AmoCRMContact> amoCRMContacts, AmoCRMLead amoCRMLead) throws APIAuthException;
@@ -62,7 +64,7 @@ public interface AmoCRMService {
 
     void setLoginUrl(String loginUrl);
 
-    String getApiBaseUrl();
+    //String getApiBaseUrl();
 
     void setApiBaseUrl(String apiBaseUrl);
 
