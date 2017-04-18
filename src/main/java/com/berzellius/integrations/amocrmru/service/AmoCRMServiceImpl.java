@@ -377,7 +377,23 @@ public class AmoCRMServiceImpl extends AmoCRMAPIRequestsBuilder implements AmoCR
         return amoCRMCreatedEntityResponse.getBody();
     }
 
+    @Override
+    public AmoCRMCreatedContactsResponse saveByUpdate(AmoCRMContact amoCRMContact) throws APIAuthException {
+        AmoCRMEntities amoCRMEntities = new AmoCRMEntities();
+        ArrayList<AmoCRMEntity> entitiesToUpdate = new ArrayList<>();
+        entitiesToUpdate.add(amoCRMContact);
+        amoCRMEntities.setUpdate(entitiesToUpdate);
+        return this.editContacts(amoCRMEntities);
+    }
 
+    @Override
+    public AmoCRMCreatedLeadsResponse saveByUpdate(AmoCRMLead amoCRMLead) throws APIAuthException {
+        AmoCRMEntities amoCRMEntities = new AmoCRMEntities();
+        ArrayList<AmoCRMEntity> entitiesToUpdate = new ArrayList<>();
+        entitiesToUpdate.add(amoCRMLead);
+        amoCRMEntities.setUpdate(entitiesToUpdate);
+        return this.editLeads(amoCRMEntities);
+    }
 
     @Override
     public String getUserLogin() {

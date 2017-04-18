@@ -1,6 +1,7 @@
 package com.berzellius.integrations.amocrmru.dto.api.amocrm;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import java.util.Iterator;
 public class AmoCRMEntityWCustomFieldsAndTags extends AmoCRMEntityWCustomFields {
     public AmoCRMEntityWCustomFieldsAndTags(){}
 
+    @JsonSerialize(using = TagsSerializer.class)
     private ArrayList<AmoCRMTag> tags;
 
     public ArrayList<AmoCRMTag> getTags() {

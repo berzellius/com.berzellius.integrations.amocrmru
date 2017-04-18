@@ -52,6 +52,10 @@ public interface AmoCRMService {
 
     AmoCRMCreatedLeadsResponse editLeads(AmoCRMEntities amoCRMEntities) throws APIAuthException;
 
+    AmoCRMCreatedContactsResponse saveByUpdate(AmoCRMContact amoCRMContact) throws APIAuthException;
+
+    AmoCRMCreatedLeadsResponse saveByUpdate(AmoCRMLead amoCRMLead) throws APIAuthException;
+
     String getUserLogin();
 
     void setUserLogin(String userLogin);
